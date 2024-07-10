@@ -1,0 +1,130 @@
+Step 00b – Syntax Error:
+
+Understanding Syntax Errors in TypeScript
+
+What is a Syntax Error?
+
+A syntax error in TypeScript (and in programming languages in general) occurs when the code violates the syntax rules defined by the language. These errors prevent the compiler or interpreter from understanding or executing the code properly. They are typically detected during the compilation or parsing phase and are often highlighted by the development environment.
+
+Examples of Syntax Errors in TypeScript
+
+Let's go through some common examples of syntax errors in TypeScript that beginners might encounter:
+
+Example 1: Missing Semicolon
+
+let x = 10 // Missing semicolon
+console.log(x);
+
+• Explanation: 
+In TypeScript (similar to JavaScript), each statement usually ends with a semicolon (;). Omitting the semicolon at the end of a statement is a common syntax error.
+The TypeScript compiler expects a semicolon to terminate the statement, so omitting it results in a syntax error.
+
+Example 2: 
+
+Misspelled Keywords
+
+if (true) {
+console.log("Hello, TypeScript!"); // Misspelled "console"
+}
+
+• Explanation: 
+
+Misspelling keywords such as console in TypeScript results in a syntax error because the compiler does not recognize the misspelled keyword as valid syntax.
+
+Example 3: 
+
+Improper Comment Syntax
+
+let message = "Hello World";
+// Syntax error:
+/* This is a multi-line
+comment missing an end */
+console.log(message);
+
+• Explanation: 
+
+TypeScript supports both single-line (//) and multi-line (/* */) comments. Improperly formatted comments, such as missing a closing */ for a multi-line comment, result in syntax errors because the compiler cannot interpret the comment properly.
+
+Example 4: 
+
+Incorrect Function Declaration
+
+function greet(name: string) { // Missing function body
+console.log(`Hello, ${name}!`);
+}
+
+• Explanation: 
+
+Functions in TypeScript must have a valid function body enclosed in curly braces {}. Omitting the function body or incorrectly defining the function structure (e.g., missing parameters or braces) leads to syntax errors.
+
+Importance of Syntax Errors
+
+• Early Detection: 
+
+Syntax errors are caught by the TypeScript compiler or IDE before runtime, which helps developers catch and fix mistakes early in the development process.
+
+• Learning Opportunity: 
+
+Understanding syntax errors helps beginners grasp the fundamental rules and structure of TypeScript and improves coding proficiency over time.
+By being aware of these common pitfalls and practicing writing and debugging TypeScript code, beginners can effectively identify and fix syntax errors to write cleaner and more functional code.
+
+More Examples of Syntax Errors in TypeScript
+
+Example 1: 
+
+Missing Parentheses or Braces
+
+// Missing parentheses in function call
+console.log("Hello, TypeScript!";
+
+• Explanation: 
+
+Functions in TypeScript (and JavaScript) require parentheses () around their arguments. Omitting these parentheses results in a syntax error because the compiler expects them to properly parse the function call.
+
+Example 2: 
+
+Incorrect Variable Declaration
+
+// Incorrect variable declaration syntax
+let name: string = "Alice;
+
+• Explanation: 
+
+Variable declarations in TypeScript should have the correct syntax, including proper type annotations and closing quotes for string literals. Omitting the closing quote or having incorrect type annotations leads to syntax errors.
+
+Example 3: 
+
+Using Reserved Keywords Incorrectly
+
+let function = "test";
+• Explanation: Using reserved keywords like function as variable names in TypeScript results in syntax errors. These keywords are reserved for specific language constructs and cannot be used as identifiers.
+
+Example 4: 
+
+Incorrect Array or Object Literal Syntax
+
+let numbers: number[] = [1, 2, 3, 4;
+
+• Explanation: 
+
+Array and object literals in TypeScript should be correctly formatted with proper syntax. Omitting closing brackets ] for arrays or curly braces } for objects leads to syntax errors.
+
+Example 5: 
+
+Using Undeclared Variables
+
+console.log(foo);
+
+• Explanation: 
+
+Using variables that have not been declared or initialized in TypeScript results in a reference error, but TypeScript also considers it a form of syntax error because it violates the rules of variable declaration and usage.
+
+Importance of Handling Syntax Errors
+
+• Code Quality: 
+
+Fixing syntax errors ensures that code is correctly structured and adheres to TypeScript's syntax rules, improving overall code quality and maintainability.
+
+• Learning Experience: 
+
+Identifying and resolving syntax errors is a fundamental part of learning TypeScript, helping developers understand the language's syntax and rules

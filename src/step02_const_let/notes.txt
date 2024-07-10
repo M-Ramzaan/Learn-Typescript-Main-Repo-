@@ -1,0 +1,53 @@
+Understanding const and let in TypeScript
+
+const Keyword
+
+The const keyword in TypeScript is used to declare constants, which are variables whose values cannot be reassigned once they are initialized. Here's an explanation with examples:
+
+// Use const where variable values do not change
+
+const a = 5;
+const b: number = 33;
+const c = "best";
+
+• Explanation:
+
+o a = 5;: a is declared using const, so its value cannot be changed after initialization. Attempting to reassign a elsewhere in the code would result in a compilation error.
+o b: number = 33;: b is explicitly typed as a number and initialized with 33. Like a, b cannot be reassigned.
+o c = "best";: c is initialized with a string "best". As with a and b, c cannot have its value changed after initialization.
+
+let Keyword
+
+The let keyword in TypeScript is used to declare variables that have block scope, unlike var, which has function scope. Here's how let works:
+
+// Use let instead of var everywhere, because let has block scope
+
+if (true) {
+let z = 4;
+// Use z
+} else {
+let z = "string";
+// Use z
+}
+console.log("let: " + z); // Error: z is not defined in this scope
+
+• Explanation:
+
+o Inside the if block, let z = 4; declares z with block scope, meaning z is only accessible within that block. The same applies to let z = "string"; inside the else block.
+o Outside the blocks, attempting to access z results in an error (z is not defined) because z is scoped only within its respective if or else block.
+
+Key Differences and Usage
+
+• const vs let:
+o Use const for variables whose values do not change throughout the program. This enhances code clarity and prevents accidental reassignment.
+o Use let for variables that need to be reassigned or have block-scoped visibility within specific blocks of code.
+
+Importance of const and let
+
+• Code Safety: 
+
+Using const ensures that constants retain their intended values, reducing accidental mutations and enhancing code reliability.
+
+• Block Scope: 
+
+let provides better scoping rules compared to var, reducing bugs caused by variable hoisting and unintended global scope.

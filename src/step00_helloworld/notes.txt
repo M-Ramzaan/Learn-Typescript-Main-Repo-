@@ -1,0 +1,149 @@
+Step 00 - Hello World:
+
+Step-by-Step Guide to Starting TypeScript Development in VS Code
+Step 1: Install Node.js
+
+1. Visit Node.js.
+2. Download and install the latest version of Node.js suitable for your operating system (Windows, macOS, or Linux).
+
+o Follow the installation prompts to complete the setup.
+
+Step 2: Install TypeScript
+
+1. Open your terminal or command prompt.
+2. Install TypeScript globally using Node Package Manager (npm) by running the command:
+
+npm install -g typescript
+
+o This installs TypeScript globally, making the tsc command available anywhere on your system.
+
+Step 3: Install Visual Studio Code (VSCode)
+
+1. Visit Visual Studio Code.
+2. Download and install VSCode for your operating system.
+o Follow the installation prompts to complete the setup.
+
+Step 4: Generate tsconfig.json
+
+1. Open your terminal or command prompt.
+2. Navigate to your project directory.
+3. Run the following command to generate a tsconfig.json file:
+tsc --init
+o This file is essential for configuring TypeScript options for your project.
+
+Step 5: Running TypeScript in Windows PowerShell
+
+1. Open PowerShell in Administrator mode.
+2. Run the following command to update the execution policy:
+Set-Execution Policy Remote Signed
+o This allows you to run the tsc command in PowerShell.
+
+Step 6: Initialize a Node.js Project
+
+1. Open your terminal or command prompt.
+2. Navigate to your project directory.
+3. Run the following command to create a package.json file:
+npm init -y
+o This initializes your project as a Node.js project.
+
+Step 7: Install Types for Node.js
+
+1. Open your terminal or command prompt.
+2. Navigate to your project directory.
+3. Run the following command to install types for Node.js:
+npm i @types/node -D
+o This installs the Node.js type definitions as a development dependency.
+
+Step 8: Create. gitignore File
+
+1. In your project root directory, create a file named .gitignore.
+2. Add the following content to the file to ignore unnecessary files:
+node_modules/
+
+Step 9: Create app.ts File
+
+1. In your project directory, create a file named app.ts.
+2. Add the following TypeScript code to the file:
+const message: string = 'Hello, TypeScript!';
+console.log(message);
+
+Step 10: Transpile TypeScript to JavaScript
+1. Open your terminal or command prompt.
+2. Navigate to your project directory.
+3. Run the following command to transpile TypeScript to JavaScript:
+tsc
+o This command compiles the app.ts file and generates an app.js file.
+
+Step 11: Run the Transpiled JavaScript
+
+1. Open your terminal or command prompt.
+2. Navigate to your project directory.
+3. Run the following command to execute the JavaScript file:
+node app.js
+
+o This runs the transpiled JavaScript code and prints "Hello, TypeScript!" to the console.
+
+Step 00 - Hello World (MCQ’s):
+
+Question 1
+
+What command is used to generate a tsconfig.json file in a TypeScript project?
+A) tsc --generate-config 
+B) tsc --init 
+C) tsc --config 
+D) tsc --create-config
+
+Question 2
+Which of the following commands is used to install TypeScript globally using npm?
+A) npm install -g typescript 
+B) npm install --global typescript 
+C) npm install typescript -g 
+D) npm install typescript --global
+
+Question 3
+
+What is the purpose of the Set-ExecutionPolicy RemoteSigned command in Windows PowerShell?
+A) To enable the use of all PowerShell commands without restriction 
+B) To allow the execution of scripts created on the local machine and downloaded from the internet 
+C) To restrict the execution of all scripts except those signed by a trusted publisher 
+D) To disable the execution of all scripts in PowerShell
+
+Question 4
+
+Which command initializes a Node.js project and creates a package.json file with default values?
+A) npm init 
+B) npm init --default
+C) npm init -y 
+D) npm create package
+
+Question 5
+
+Why is the @types/node package installed in a TypeScript project?
+A) To add TypeScript support for Node.js-specific APIs and globals 
+B) To install the Node.js runtime 
+C) To enable debugging features in Visual Studio Code 
+D) To transpile TypeScript code to JavaScript
+
+Question 6
+
+What is the main purpose of the tsconfig.json file in a TypeScript project?
+A) To configure Node.js runtime options 
+B) To specify TypeScript compiler options and project settings 
+C) To list all TypeScript dependencies 
+D) To store environment variables for the project
+
+Question 7
+
+Which of the following entries would you add to a .gitignore file to ignore the node_modules directory and JavaScript files?
+A) node_modules/ and *.ts 
+B) node_modules/ and *.js 
+C) node_modules and *.ts 
+D) node_modules and *.json
+
+Question 8
+
+Which command is used to transpile TypeScript files to JavaScript?
+A) npm run 
+B) node app 
+C) tsc 
+D) ts-run

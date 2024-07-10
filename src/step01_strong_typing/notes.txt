@@ -1,0 +1,54 @@
+Step 01 – Strong Typing:
+
+Understanding Strong Typing in TypeScript
+
+What is Strong Typing?
+
+Strong typing in TypeScript refers to the strict enforcement of variable types during compilation. This means that once a variable is assigned a specific type, TypeScript ensures that only values of that type can be assigned to it thereafter. It helps prevent type errors by catching potential issues early in the development process.
+
+Example Explained
+
+// Strongly typed syntax
+
+let a: string = "Pakistan";
+a = "USA";
+let b: number = 9;
+let c: boolean = true;
+
+• Explanation:
+
+o a: string = "Pakistan";: Here, a is explicitly declared as a string. TypeScript ensures that only string values can be assigned to a. Changing a to "USA" is valid because both "Pakistan" and "USA" are strings.
+o b: number = 9;: b is explicitly typed as a number. TypeScript allows assigning numeric values (9 in this case) to b.
+o c: boolean = true;: c is explicitly typed as a boolean. TypeScript restricts c to only hold boolean values (true in this case).
+
+Type Inference
+
+// Type inference
+let e = "USA";
+let f = 10.9;
+f = 22;
+let g = false;
+g = true;
+
+• Explanation:
+
+o Type inference allows TypeScript to deduce the type of a variable based on its initialization.
+o e = "USA";: TypeScript infers e as a string because it is initialized with a string value "USA".
+o f = 10.9;: f is inferred as a number due to its initialization with a decimal number 10.9.
+o f = 22;: Changing f to 22 is valid because both 10.9 and 22 are of type number.
+o g = false;: TypeScript infers g as a boolean because it is initialized with the boolean value false.
+o g = true;: Changing g to true is valid because both false and true are boolean values.
+
+Importance of Strong Typing
+
+• Preventing Type Errors: 
+
+Strong typing helps catch type mismatches early in development, reducing bugs and improving code reliability.
+
+• Code Clarity: 
+
+Explicitly declaring variable types makes the code easier to understand and maintain, especially in larger projects or teams.
+
+• Enhanced Tooling Support: 
+
+TypeScript's strong typing enables better tooling support (e.g., IDE features like autocompletion, type checking), leading to improved developer productivity.

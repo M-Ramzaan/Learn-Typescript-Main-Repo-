@@ -1,0 +1,67 @@
+Step 00c – Type Error:
+
+Understanding Type Errors in TypeScript
+
+What is a Type Error?
+
+A type error in TypeScript occurs when there is a mismatch between the types of values that are expected and the types of values that are actually provided or used in the code. TypeScript is a statically typed language, meaning it checks types during compilation to detect such errors early in the development process.
+
+Examples of Type Errors in TypeScript
+
+Let's explore some common examples of type errors that developers might encounter:
+
+Example 1: 
+
+Type Mismatch in Variable Assignment
+
+let age: number = "30";
+
+• Explanation: 
+
+In TypeScript, variables are assigned types explicitly. Here, the variable age is declared as a number, but a string "30" is assigned to it. This mismatch between the expected type (number) and the provided type (string) results in a type error.
+
+Example 2: 
+
+Incorrect Function Argument Types
+
+function greet(name: string) {
+console.log(`Hello, ${name}!`);
+}
+greet(25);
+
+• Explanation: 
+
+Functions in TypeScript can specify the types of their parameters. In this example, the function greet expects a parameter of type string, but the argument 25 provided to the function call is a number. This mismatch causes a type error.
+
+Example 3: 
+
+Type Mismatch in Arrays
+
+let numbers: number[] = [1, 2, "3", 4];
+
+• Explanation: 
+
+TypeScript arrays can be typed to contain specific types of elements (number in this case). However, including a string "3" in the array numbers violates this type constraint, resulting in a type error.
+
+Example 4: 
+
+Type Assertions
+
+let userInput: any = "Alice";
+let userName: string = userInput;
+console.log(userName.toUpperCase());
+
+• Explanation: 
+
+TypeScript allows type assertions using the as syntax or angle brackets (<>) to override its type inference. Here, userInput is explicitly typed as any, which disables type checking. Assigning userInput directly to userName without proper type assertion results in a potential type error when trying to call toUpperCase() on userName.
+
+Importance of Handling Type Errors
+
+• Early Detection: 
+
+TypeScript's static type system catches type errors during compilation, preventing runtime errors and enhancing code reliability.
+
+• Code Quality: 
+
+Fixing type errors ensures that variables, functions, and data structures adhere to expected types, promoting cleaner and more maintainable code.
+• Enhanced Developer Experience: Understanding and resolving type errors improves developers' understanding of TypeScript's type system and leads to more efficient coding practices.
