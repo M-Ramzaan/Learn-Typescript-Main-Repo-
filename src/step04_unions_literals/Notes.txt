@@ -1,0 +1,235 @@
+What are Union Literals?
+
+In TypeScript, a union type is a type formed from two or more other types, representing values that can be any one of those types. This is useful when a value can have multiple types.
+
+A union literal is essentially the use of union types with literal types. A literal type is a type that represents a specific value, such as a specific string or number.
+
+Syntax
+
+The syntax for union types involves using the pipe (|) symbol to separate the different types:
+
+
+let variable: type1 | type2 | type3;
+Examples and Explanation
+Let's go through your examples step by step:
+
+Example 1: Union of string and null
+
+let myName: string | null;
+
+myName = null;
+console.log(myName); // null
+
+myName = "Muhammad Ramzan Akram";
+console.log(myName); // Muhammad Ramzan Akram
+
+// myName = undefined // Error: Type 'undefined' is not assignable to type 'string | null'.
+// myName = 12 // Error: Type 'number' is not assignable to type 'string | null'.
+Here, myName can either be a string or null. This is useful for scenarios where a variable might be intentionally unset or cleared.
+
+Example 2: Union of string and number
+
+
+let myAge: string | number;
+
+myAge = 16;
+console.log(myAge); // 16
+
+// console.log(myAge.toLowerCase()); // Error: Property 'toLowerCase' does not exist on type 'number'.
+
+myAge = "Don't Know";
+console.log(myAge); // Don't Know
+
+console.log(myAge.toString()); // "Don't Know"
+
+console.log(myAge.toLowerCase()); // "don't know"
+Here, myAge can be either a string or a number. When myAge is a string, you can use string methods like toLowerCase(). When it's a number, those methods don't exist.
+
+Narrowing
+
+let newAge = Math.random() > 0.6 ? "Khan" : 60;
+console.log(newAge);
+
+// console.log(newAge.toLowerCase()); // Error: Property 'toLowerCase' does not exist on type 'string | number'.
+
+if (newAge === "Khan") {
+  console.log(newAge.toLowerCase()); // Ok: string
+}
+
+if (typeof newAge === "string") {
+  console.log(newAge.toUpperCase()); // Ok: string
+}
+
+typeof newAge === "string" ? newAge.toUpperCase() : newAge.toFixed(); // Ok
+When you use a union type, TypeScript sometimes can't infer the exact type, so you need to narrow the type. This can be done with type guards like typeof.
+
+Literal Types
+
+let age: number | "died" | "unknown";
+
+age = 90;
+age = "died";
+age = "unknown";
+// age = "living"; // Error: Type '"living"' is not assignable to type 'number | "died" | "unknown"'.
+
+let zia: "Zia";
+
+zia = "Zia";
+// zia = "Not Zia"; // Error: Type '"Not Zia"' is not assignable to type '"Zia"'.
+Here, age can be a number, "died", or "unknown", and zia can only be the string literal "Zia". This is useful for cases where you want to restrict a variable to a limited set of specific values.
+
+Using undefined with Optional Chaining
+
+let yourName = Math.random() > 0.6 ? "Hira Khan" : undefined;
+
+if (yourName) {
+  yourName.toUpperCase(); // Ok: string
+}
+
+// yourName.toUpperCase(); // Error: Object is possibly 'undefined'.
+
+yourName?.toUpperCase(); // OK
+Here, yourName can be a string or undefined. You use optional chaining (?.) to safely call methods on yourName without risking an error if it is undefined.
+
+Type Aliases
+
+type RawData = boolean | number | string | null | undefined;
+
+let data: RawData;
+
+type Id = number | string;
+
+type IdMaybe = Id | undefined | null;
+Type aliases allow you to create more readable and reusable types. RawData is a union type that includes several types, and IdMaybe is a combination of Id (which is itself a union) and undefined or null.
+
+Summary
+Union types are a powerful feature in TypeScript that let you specify that a value can be one of several types. They help in creating flexible and type-safe code. With union types, you can also use type narrowing techniques to perform different actions based on the type of the variable at runtime.
+
+Repo Example Explanation
+
+Union types allow you to specify a variable that can hold multiple types. Let's go through the example.
+
+Example 1: string | null
+
+let myName: string | null;
+
+myName = "Muhammad Ramzan Akram";
+console.log(myName); // Output: Muhammad Ramzan Akram
+
+myName = null;
+console.log(myName); // Output: null
+
+// myName = 1875;
+// console.log(myName); // Error: Type 'number' is not assignable to type 'string | null'
+
+// myName = undefined;
+// console.log(myName); // Error: Type 'undefined' is not assignable to type 'string | null'
+string | null: This means myName can either be a string or null.
+Initially, we assign a string to myName and log it.
+Then, we assign null to myName and log it.
+Trying to assign a number or undefined to myName will cause an error because it's not allowed by the type.
+
+Example 2: string | number
+
+let myAge: string | number;
+
+myAge = 2024 - 1990;
+console.log(myAge); // Output: 34
+
+// myAge = myAge.toLowerCase(); // Error: Property 'toLowerCase' does not exist on type 'number'
+
+myAge = "I don't know.";
+console.log(myAge.toString()); // Output: I don't know.
+console.log(myAge.toLocaleLowerCase()); // Output: i don't know.
+console.log(myAge.toUpperCase()); // Output: I DON'T KNOW.
+string | number: This means myAge can either be a string or a number.
+We first assign a number to myAge and log it.
+Trying to call toLowerCase on a number will cause an error because it's a string method.
+
+Then, we assign a string to myAge and use string methods on it.
+
+let myAge2 = Math.random() > 0.6 ? "Khan" : 2024 - 1990;
+
+// myAge2.toLowerCase(); // Error
+
+if (myAge2 === "Khan") {
+  console.log(myAge2.toLowerCase()); // Output: khan
+}
+
+if (myAge2 === "string") {
+  console.log(myAge2.toUpperCase());
+}
+
+typeof myAge2 === "string" ? myAge2.toUpperCase() : myAge2.toFixed();
+Conditional Assignment: myAge2 is assigned either "Khan" or a number based on a random condition.
+We can't directly call toLowerCase without checking the type.
+Using an if statement, we check the value and call toLowerCase if it's "Khan".
+We use typeof to determine the type and then call the appropriate method.
+
+Example 3: Literal Types
+
+let age: number | "died" | "unknown";
+
+age = 25;
+age = "died";
+age = "unknown";
+// age = "khan"; // Error: Type '"khan"' is not assignable to type 'number | "died" | "unknown"'
+Literal Types: age can be a number, "died", or "unknown".
+We can assign any of these values to age.
+
+Assigning any other string, like "khan", will cause an error.
+
+let zia: "zia";
+zia = "zia";
+// zia = "khan"; // Error: Type '"khan"' is not assignable to type '"zia"'
+Literal Type "zia": zia can only be assigned the string "zia".
+Assigning any other value will cause an error.
+
+Example 4: undefined and Optional Chaining
+
+let yourName = Math.random() > 0.6 ? "Hira Khan" : undefined;
+
+if (yourName) {
+  yourName?.toUpperCase();
+}
+
+// yourName.toUpperCase(); // Error: 'yourName' is possibly 'undefined'
+
+yourName?.toUpperCase();
+Optional Chaining (?.): yourName can be either a string or undefined.
+We use ?. to safely call toUpperCase only if yourName is not undefined.
+
+Example 5: Type Aliases
+
+type rawData = boolean | number | string | null | undefined;
+
+let data: rawData;
+
+data = true;
+data = 123;
+data = "Hello";
+data = null;
+data = undefined;
+Type Alias: rawData is a custom type that can be any of the specified types.
+
+We can assign values of these types to data.
+
+let data2: rawData | symbol | bigint;
+
+data2 = true;
+data2 = 123;
+data2 = "Hello";
+data2 = null;
+data2 = undefined;
+data2 = Symbol("sym");
+data2 = 123n;
+Combining Type Aliases: data2 can be any type in rawData or a symbol or bigint.
+
+Summary
+
+Union Types allow variables to hold multiple types.
+Literal Types restrict variables to specific values.
+Optional Chaining (?.) helps safely access properties or methods on potentially undefined or null values.
+
+Type Aliases create custom types that can be reused.
+This example demonstrates the flexibility of TypeScript's type system, allowing you to define variables that can hold different types while still ensuring type safety.
