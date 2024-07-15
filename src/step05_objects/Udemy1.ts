@@ -78,3 +78,36 @@ function myCoordinates3(): Coordinates {
 function myCoordinates4(point1: Coordinates): Coordinates {
   return { x: point1.x * 2, y: point1.y * 2 };
 }
+
+//Nested Objects
+
+type Song = {
+  title: string;
+  artist: string;
+  numStreams: number;
+  credits: {
+    producer: string;
+    writer: string;
+  };
+};
+
+const mySong: Song = {
+  title: "Suraj hoa Madham",
+  artist: "Kajol",
+  numStreams: 1000,
+  credits: {
+    producer: "Sharukh Khan",
+    writer: "Kumar Sanu",
+  },
+};
+function calcPayout(myBill: Song): number {
+  return myBill.numStreams * 0.0033;
+}
+
+function printSong(mySong: Song): void {
+  console.log(`${mySong.title} - ${mySong.artist}`);
+}
+
+const julyBill: number = calcPayout(mySong);
+console.log(julyBill);
+printSong(mySong);
