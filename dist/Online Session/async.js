@@ -46,10 +46,12 @@ function drying() {
         console.log(`Drying Completed...`);
     }, 2000);
 }
+console.log(`Folding Laundry`);
 //Calling these functions
 washing(() => {
     soaking(() => {
         drying();
     });
 });
+console.log(`I am making Biryani.`);
 export {};

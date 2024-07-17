@@ -30,7 +30,7 @@ You can disable the noImplicitAny option in your tsconfig.json file. This will a
 
 In your tsconfig.json file, set noImplicitAny to false:*/
 
-function washing(callback) {
+function washing(callback: () => void) {
   console.log(`Washing Started...`);
   setTimeout(() => {
     console.log(`Washing Completed...`);
@@ -38,7 +38,7 @@ function washing(callback) {
   }, 5000);
 }
 
-function soaking(callback) {
+function soaking(callback: () => void) {
   console.log(`Soaking Started...`);
   setTimeout(() => {
     console.log(`Soaking Completed...`);
@@ -53,6 +53,8 @@ function drying() {
   }, 2000);
 }
 
+console.log(`Folding Laundry`);
+
 //Calling these functions
 
 washing(() => {
@@ -60,3 +62,5 @@ washing(() => {
     drying();
   });
 });
+
+console.log(`I am making Biryani.`);
