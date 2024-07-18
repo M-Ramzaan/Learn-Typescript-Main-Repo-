@@ -1,0 +1,134 @@
+Functions in TypeScript
+
+A function is a block of code designed to perform a particular task. It is executed when "called" or "invoked". Functions allow you to write reusable code and make your programs more organized.
+
+Syntax of a Traditional Function
+
+The traditional way to declare a function uses the function keyword:
+function functionName(parameters): returnType {
+  // function body
+}
+•	functionName is the name of the function.
+•	parameters are values passed to the function.
+•	returnType specifies the type of value the function returns.
+•	The function body contains the code that will be executed when the function is called.
+
+Example of Traditional Functions in TypeScript
+
+Let's break down the provided examples:
+
+1.	Expect Number
+function add(a: number, b: number): number {
+  return a + b;
+}
+•	This function is named add.
+•	It takes two parameters, a and b, both of type number.
+•	It returns a value of type number, which is the sum of a and b.
+
+2.	Expect String
+
+function greet(name: string): string {
+  return `Hello ${name}`;
+}
+•	This function is named greet.
+•	It takes a parameter name of type string.
+•	It returns a string, which is a greeting message that includes the given name.
+
+
+3.	Expect Boolean
+
+function powerOutage(light: boolean): void {
+  if (light) {
+    console.log(`Light is on`);
+  } else {
+    console.log(`Light is off`);
+  }
+}
+•	This function is named powerOutage.
+•	It takes a parameter light of type boolean.
+•	It does not return any value (void), but it logs a message indicating whether the light is on or off.
+
+4.	Expect Array
+
+function customFind(arr: string[], element: string): void | boolean {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === element) {
+      return true;
+    }
+  }
+}
+•	This function is named customFind.
+•	It takes two parameters: arr, an array of strings, and element, a string.
+•	It returns either void (if the element is not found) or boolean (if the element is found in the array).
+
+5.	Expect Object
+
+type TPerson = {
+  name: string;
+  age: number;
+};
+
+
+const person: TPerson = {
+  name: "Muhammad Ramzan Akram",
+  age: 34,
+};
+
+function logPerson(person: TPerson): void {
+  console.log(person.name);
+}
+•	TPerson is a type defining an object with name (string) and age (number) properties.
+•	person is a constant object that follows the TPerson structure.
+•	logPerson is a function that takes a TPerson object and logs the person's name. It does not return any value (void).
+
+Arrow Functions
+
+Arrow functions provide a shorter syntax for writing functions and are often used for simpler functions or callbacks.
+
+Syntax of an Arrow Function
+
+The basic syntax of an arrow function is:
+const functionName = (parameters) => returnType {
+  // function body
+}
+•	Arrow functions omit the function keyword.
+•	The => symbol separates the parameter list from the function body.
+•	If the function body contains only a single expression, you can omit the curly braces {} and the return keyword.
+
+Example of Arrow Functions
+
+Here are the provided functions rewritten as arrow functions:
+1.	Expect Number
+const add = (a: number, b: number): number => a + b;
+2.	Expect String
+const greet = (name: string): string => `Hello ${name}`;
+3.	Expect Boolean
+const powerOutage = (light: boolean): void => {
+  if (light) {
+    console.log(`Light is on`);
+  } else {
+    console.log(`Light is off`);
+  }
+};
+
+4.	Expect Array
+
+const customFind = (arr: string[], element: string): void | boolean => {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === element) {
+      return true;
+    }
+  }
+};
+
+5.	Expect Object
+
+const logPerson = (person: TPerson): void => {
+  console.log(person.name);
+};
+
+Summary
+
+•	Traditional Functions: Use the function keyword and are good for more complex function declarations.
+•	Arrow Functions: Provide a shorter syntax, especially useful for simple functions and callbacks.
+Both types of functions can be used interchangeably, and choosing one over the other depends on the specific needs and readability of your code.

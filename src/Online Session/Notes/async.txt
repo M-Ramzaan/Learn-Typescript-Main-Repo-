@@ -1,0 +1,217 @@
+Asynchronous Programming with Callbacks and Promises in TypeScript
+Asynchronous programming allows you to perform tasks without blocking the execution of other operations. Let's start with some basic concepts and then move on to an example of washing clothes using both callbacks and promises.
+
+Basic Asynchronous Example
+
+console.log(`One`);
+
+setTimeout(function () {
+  console.log(`Hello, I am delayed code.`);
+}, 2000);
+
+function greet() {
+  console.log(`Hi! Muhammad Ramzan Akram.`);
+}
+
+setTimeout(greet, 2500);
+
+console.log(`Two`);
+
+•	console.log('One') prints "One".
+•	setTimeout schedules a function to run after a delay.
+•	The first setTimeout runs an anonymous function after 2 seconds.
+•	The second setTimeout runs the greet function after 2.5 seconds.
+•	console.log('Two') prints "Two".
+
+Washing Clothes Example Using Callbacks
+
+Callbacks are functions passed as arguments to other functions and executed after an asynchronous task is completed.
+function washing(callback: () => void) {
+  console.log(`Washing Started...`);
+  setTimeout(() => {
+    console.log(`Washing Completed...`);
+    callback();
+  }, 5000);
+}
+
+function soaking(callback: () => void) {
+  console.log(`Soaking Started...`);
+  setTimeout(() => {
+    console.log(`Soaking Completed...`);
+    callback();
+  }, 3000);
+}
+
+function drying() {
+  console.log(`Drying Started...`);
+  setTimeout(() => {
+    console.log(`Drying Completed...`);
+  }, 2000);
+}
+
+console.log(`Folding Laundry`);
+
+washing(() => {
+  soaking(() => {
+    drying();
+  });
+});
+
+console.log(`I am making Biryani.`);
+
+•	washing, soaking, and drying are functions that simulate washing clothes in stages.
+•	Each stage logs a start message, waits for a certain time (using setTimeout), logs a completion message, and calls the next stage.
+•	The washing function calls soaking, which then calls drying.
+
+Washing Clothes Example Using Promises
+
+Promises provide a cleaner and more manageable way to handle asynchronous tasks.
+
+function washing() {
+  console.log(`Washing Started...`);
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`Washing Done...`);
+    }, 5000);
+  });
+}
+
+function soaking() {
+  console.log(`Soaking Started...`);
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`Soaking Completed...`);
+    }, 3000);
+  });
+}
+
+function drying() {
+  console.log(`Drying Started...`);
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`Drying Completed...`);
+    }, 2000);
+  });
+}
+
+console.log(`Folding Laundry`);
+
+washing()
+  .then((value) => {
+    console.log(value);
+    return soaking();
+  })
+  .then((value) => {
+    console.log(value);
+    return drying();
+  })
+  .then((value) => {
+    console.log(value);
+  })
+  .catch((error) => {
+    console.log(`Error Occurred`);
+  });
+
+console.log(`I am making Biryani.`);
+
+•	Each function returns a promise that resolves when the task is complete.
+•	.then methods are chained to handle the completion of each task in order.
+•	If any promise is rejected, the .catch method handles the error.
+
+Using Async/Await for Promises
+
+Async/await provides a more readable way to work with promises.
+async function runWashingMachine() {
+  try {
+    const result1 = await washing();
+    console.log(result1);
+    const result2 = await soaking();
+    console.log(result2);
+    const result3 = await drying();
+    console.log(result3);
+  } catch (error) {
+    console.log(error);
+  } finally {
+    console.log(`I will run anyway.`);
+  }
+}
+
+console.log(`Folding Laundry`);
+
+runWashingMachine();
+
+console.log(`I am making Biryani.`);
+•	async keyword makes the function return a promise.
+•	await keyword pauses the function execution until the promise resolves.
+•	try/catch block handles any errors that occur during the asynchronous operations.
+•	finally block runs code that should execute regardless of the promise's outcome.
+
+Explanation
+
+1.	Basic Example:
+
+o	Logs "One".
+o	Schedules a message to log after 2 seconds.
+o	Defines a function to log another message.
+o	Schedules the defined function to log after 2.5 seconds.
+o	Logs "Two".
+
+2.	Callbacks Example:
+
+o	Logs "Folding Laundry".
+o	Starts washing and logs "Washing Started...".
+o	After 5 seconds, logs "Washing Completed..." and starts soaking.
+o	Logs "Soaking Started...", waits 3 seconds, logs "Soaking Completed...", and starts drying.
+o	Logs "Drying Started...", waits 2 seconds, and logs "Drying Completed...".
+o	Logs "I am making Biryani".
+
+3.	Promises Example:
+
+o	Each function returns a promise that resolves after a delay.
+o	Chained .then methods handle each stage sequentially.
+o	If an error occurs, the .catch method handles it.
+
+4.	Async/Await Example:
+
+o	Uses async/await for a more readable and synchronous-like structure.
+o	Handles errors with try/catch.
+o	Runs a final message regardless of the outcome.
+
+// Top-Level Code
+
+console.log(`Folding Laundry`);
+
+try {
+  const result1 = await washing();
+  console.log(result1);
+
+  const result2 = await soaking();
+  console.log(result2);
+
+  const result3 = await drying();
+  console.log(result3);
+} catch (error) {
+  console.log(error);
+} finally {
+  console.log(`I will run anyway.`);
+}
+
+console.log(`I am making Biryani.`);
+
+Explanation
+
+1.	Functions Returning Promises:
+o	washing, soaking, and drying functions return promises that resolve after a delay.
+
+2.	Top-Level Code:
+
+o	console.log('Folding Laundry'); prints "Folding Laundry".
+o	The code uses top-level await to handle the asynchronous functions sequentially.
+o	await washing(); waits for the washing to complete before proceeding.
+o	await soaking(); waits for the soaking to complete before proceeding.
+o	await drying(); waits for the drying to complete before proceeding.
+o	If any promise is rejected, the catch block handles the error.
+o	The finally block runs regardless of the outcome of the promises.
+o	console.log('I am making Biryani'); prints "I am making Biryani".
+
+Using top-level await can make your scripts more straightforward and eliminate the need for wrapping your top-level code in an async function, especially when handling asynchronous tasks in a module.

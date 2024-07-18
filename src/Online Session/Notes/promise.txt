@@ -1,0 +1,88 @@
+Promises in TypeScript
+
+A promise is an object representing the eventual completion or failure of an asynchronous operation. It allows you to handle asynchronous tasks in a more manageable way by chaining methods for different outcomes.
+
+Basic Syntax of a Promise
+
+Creating a Promise
+
+A promise is created using the Promise constructor, which takes a function with two parameters: resolve and reject.
+const promise = new Promise((resolve, reject) => {
+  // Asynchronous operation
+});
+•	resolve: Call this function when the operation is successful.
+•	reject: Call this function when the operation fails.
+
+Handling Resolved Promises
+
+When a promise is resolved, you can handle the result using the .then method.
+const promise = new Promise((resolve, reject) => {
+  resolve("Success");
+});
+
+promise.then((value) => {
+  console.log(value); // Logs "Success"
+});
+
+Handling Rejected Promises
+
+When a promise is rejected, you can handle the error using the .catch method.
+const promise = new Promise((resolve, reject) => {
+  reject("Failed!!!");
+});
+
+promise.catch((error) => {
+  console.log(error); // Logs "Failed!!!"
+});
+
+Promise States
+
+A promise has three states:
+
+1.	Pending: The initial state, neither fulfilled nor rejected.
+2.	Resolved (Fulfilled): The operation completed successfully.
+3.	Rejected: The operation failed.
+
+Example: Returning Money
+
+Let's understand promises with a practical example:
+const returnMoney = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    // resolve(`Money Returned`);
+    reject(`Money not paid.`);
+  }, 2000);
+});
+
+returnMoney
+  .then((value) => {
+    console.log(value); // This will run if the promise is resolved
+    console.log(`Thanks for your help.`);
+  })
+  .catch((value) => {
+    console.log(value); // This will run if the promise is rejected
+    console.log(`Sorry! I can't pay the money right now.`);
+  })
+  .finally(() => {
+    console.log(`Remember! I will not give any money to you in future.`); // This will run regardless of the promise state
+  });
+
+Explanation:
+
+1.	Creating the Promise:
+o	const returnMoney = new Promise((resolve, reject) => { ... });: We create a new promise that simulates returning money to a friend.
+o	setTimeout(() => { ... }, 2000);: We use setTimeout to simulate an asynchronous operation that takes 2 seconds.
+2.	Handling the Promise:
+o	.then((value) => { ... }): This method runs when the promise is resolved. It logs the resolved value and a thank-you message.
+o	.catch((value) => { ... }): This method runs when the promise is rejected. It logs the rejected value and an apology message.
+o	.finally(() => { ... }): This method runs regardless of whether the promise is resolved or rejected. It logs a message saying you won't lend money in the future.
+
+Summary
+
+•	Promise: An object representing an asynchronous operation.
+•	States: Pending, Resolved, Rejected.
+•	Methods:
+o	.then(): Handles resolved promises.
+o	.catch(): Handles rejected promises.
+o	.finally(): Runs code regardless of the promise's outcome.
+
+Promises help you write cleaner and more manageable code for handling asynchronous operations.

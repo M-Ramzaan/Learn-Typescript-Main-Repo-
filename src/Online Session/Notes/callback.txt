@@ -1,0 +1,61 @@
+Callbacks in TypeScript
+
+A callback function is a function that is passed as an argument to another function and is executed after some operation has been completed. Callbacks are a way to make sure certain code runs only after another piece of code has finished executing, and they are essential for handling asynchronous operations.
+
+Understanding Callbacks with an Example
+
+Let's break down the provided example:
+
+function parentFunction(func: () => void) {
+  console.log(`Hi! I am the parent function`); //1
+  func(); // Calling the callback function
+}
+•	parentFunction is a function that accepts another function (func) as a parameter. The func parameter is a callback function.
+•	Inside parentFunction, it logs a message to the console and then calls the func callback function.
+
+First Way to Use Callback
+
+function childFunction() {
+  console.log(`Hi! I am the child function 1.`); //2
+}
+
+parentFunction(childFunction);
+•	childFunction is a separate function that logs a message to the console.
+•	parentFunction(childFunction) passes childFunction as a callback to parentFunction.
+•	When parentFunction is called, it first logs its message, then calls childFunction, which logs its message.
+
+Second Way to Use Callback
+
+parentFunction(function() {
+  console.log(`Hi! I am the child function 2.`); //3
+});
+•	Instead of defining childFunction separately, we define the callback function directly inside the parentFunction call.
+•	This inline function logs a different message to the console when parentFunction calls it.
+
+Key Attributes of Callback Functions
+
+1.	Function Inside Round Brackets:
+
+o	When you see a function inside the parentheses of another function, it's a callback function.
+
+o	Example: parentFunction(childFunction). Here, childFunction is passed as a callback to parentFunction.
+
+2.	Calling the Parent Function:
+
+o	You call the parent function and pass the callback function as an argument.
+o	Example: parentFunction(childFunction). You call parentFunction, not childFunction. The parent function then calls the callback.
+
+3.	Callbacks are Not Nested Functions:
+
+o	A callback function is passed as a parameter to the parent function, not defined within the body of the parent function.
+o	A nested function is a function defined inside the body of another function, which is different from a callback passed as an argument.
+
+Summary
+
+•	Parent Function: A function that takes another function (callback) as a parameter.
+
+•	Callback Function: A function passed as an argument to the parent function, which is called inside the parent function.
+
+•	Not Nested: Callbacks are passed as parameters, not defined inside the parent function body.
+
+Callbacks are essential for asynchronous programming and event handling, allowing you to execute code after a certain task or event is completed.

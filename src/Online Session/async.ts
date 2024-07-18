@@ -19,8 +19,6 @@ setTimeout(greet, 2500);
 console.log(`Two`);
 */
 
-import { resolve } from "path";
-
 //Example 01 (Washing Clothes)
 
 //In below code callback give error which is change via following commands
@@ -139,3 +137,25 @@ console.log(`Foldning Laundry`);
 runWashingMachine();
 
 console.log(`I am making Biryani.`);
+/*
+// Top-Level Code
+
+console.log(`Folding Laundry`);
+
+try {
+  const result1 = await washing();
+  console.log(result1);
+
+  const result2 = await soaking();
+  console.log(result2);
+
+  const result3 = await drying();
+  console.log(result3);
+} catch (error) {
+  console.log(error);
+} finally {
+  console.log(`I will run anyway.`);
+}
+
+console.log(`I am making Biryani.`);
+*/
