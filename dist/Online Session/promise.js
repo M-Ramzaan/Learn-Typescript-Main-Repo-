@@ -45,6 +45,8 @@ returnMoney
     console.log(`Sorry! i can't pay the money right now.`);
 })
     .finally(() => {
-    console.log(`Remember! I will not give any money to you in future.`);
+    console.log(`Remember! I will not give any money to you in future.` `);
+  });
+    );
 });
 export {};
