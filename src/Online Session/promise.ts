@@ -12,9 +12,6 @@ promise.then((value) => {
 });
 */
 
-import { promises } from "dns";
-import { resolve } from "path";
-
 //Reject
 /*
 const promise = new Promise((resolve, reject) => {
@@ -50,4 +47,7 @@ returnMoney
   .catch((value) => {
     console.log(value);
     console.log(`Sorry! i can't pay the money right now.`);
+  })
+  .finally(() => {
+    console.log(`Remember! I will not give any money to you in future.``);
   });
