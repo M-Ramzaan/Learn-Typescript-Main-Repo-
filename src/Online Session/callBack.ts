@@ -13,12 +13,6 @@ function childFunction() {
 
 parentFunction(childFunction);
 
-//Second way to do that
-
-parentFunction(() => {
-  console.log(`Hi! I am the child function 2.`); //3
-});
-
 //Attributes that need to remember that you know its a call back function
 
 //1-When you see a function inside the round brackets of a function it means its a call back function.
