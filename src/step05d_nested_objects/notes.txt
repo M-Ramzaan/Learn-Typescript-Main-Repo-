@@ -1,0 +1,75 @@
+Nested Objects in TypeScript
+
+Definition: A nested object is an object that contains another object as a property. In TypeScript, nested objects are defined using type aliases or interfaces, allowing for a structured and organized way to represent complex data.
+
+Example: Nested Object with Author and Book
+
+Defining Types:
+
+Author: This type has two string properties: firstName and lastName.
+Book: This type has two properties: author (of type Author) and name (a string).
+
+Creating a Nested Object:
+
+Book Object: The book object is created with an author object nested inside it, following the structure defined by the Book type.
+
+Detailed Explanation
+
+Author Type:
+
+Properties:
+
+firstName: string
+lastName: string
+Usage: Represents the author's first and last names.
+Book Type:
+
+Properties:
+
+author: Author (nested object)
+name: string
+Usage: Represents a book with an author and a book name.
+Creating an Object:
+
+Book Object:
+
+author: An object with firstName and lastName.
+name: The name of the book.
+
+Example:
+
+let book: Book = {
+  author: {
+    firstName: "Muhammad Ramzan",
+    lastName: "Akram",
+  },
+  name: "Harry Porter",
+};
+
+Key Points
+
+Nested Objects:
+
+Allow for organizing related data into a structured format.
+Enhance code readability and maintainability.
+Follow the defined types for consistency and type checking.
+
+Type Aliases:
+
+Used to define the shape of an object.
+Provide a clear and reusable structure for complex data.
+
+Creating Objects:
+
+Follow the type definitions to ensure the objects are correctly structured.
+
+Nested properties must adhere to the types defined in the nested object.
+Practical Application
+
+Data Modeling: Useful for representing complex data structures, such as user profiles, product details, and more.
+
+API Responses: Helps in handling nested data received from APIs, ensuring the data conforms to expected types.
+
+Type Safety: Ensures that nested objects have the correct properties, reducing errors and improving code quality.
+
+By understanding how to define and use nested objects in TypeScript, you can create more organized and type-safe code, making it easier to manage and work with complex data structures.

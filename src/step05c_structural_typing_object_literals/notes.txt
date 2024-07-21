@@ -1,0 +1,81 @@
+Interchangeable Interfaces
+
+Definition: In TypeScript, interfaces with the same structure are considered compatible and can be assigned to each other.
+
+Example: Ball and Sphere interfaces both have a diameter property of type number.
+
+Concept: If two interfaces have the same properties with the same types, they are considered interchangeable.
+
+
+Usage:
+
+Assigning one to the other is allowed.
+This is because TypeScript uses structural typing, which means the compatibility of types is determined by their structure rather than their names.
+
+Adding More Members
+
+Definition: If an interface contains all members of another interface plus additional ones, it can be assigned to the interface with fewer properties.
+
+Example: Tube interface has diameter and length properties.
+
+Concept:
+
+A type with more properties can be assigned to a type with fewer properties.
+
+However, the reverse is not true because the receiving type must have all properties of the type being assigned.
+
+Fresh vs. Stale Object Literals
+
+Fresh Object Literals:
+
+Definition: Newly created and directly assigned objects.
+
+Behavior: TypeScript performs strict property checks.
+
+Rule: When a fresh object literal is assigned to a variable or passed as a parameter of a non-empty target type, it is an error for the object literal to specify properties that don't exist in the target type.
+
+Reasoning: Static knowledge of excess or misspelled properties should not be silently lost since the fresh types of the object literals are never captured in variables.
+
+Stale Object Literals:
+
+Definition: Object literals that are assigned to variables first.
+
+Behavior: TypeScript performs less strict property checks.
+
+Rule: Can only assign a type that has the same properties, similar to fresh object literals.
+
+Usage: Allows assigning an object literal to a variable and then using that variable for type assignment.
+
+Index Signatures
+
+Definition: A type can include an index signature to explicitly indicate that excess properties are permitted.
+
+Usage: Allows flexibility in object structures by specifying that an object can have additional properties not explicitly defined in the interface.
+
+Example: An object type with an index signature allows properties with any key name as long as they meet the defined value type.
+
+Examples and Key Points
+
+Interchangeable Interfaces:
+
+Ball and Sphere can be assigned to each other because they have the same properties.
+
+Tube can be assigned to Ball and Sphere but not the other way around because Tube has an additional property.
+
+Fresh Object Literals:
+
+Strict property checks ensure that only the defined properties are allowed.
+
+Excess properties result in an error.
+
+Stale Object Literals:
+
+Less strict property checks allow the assignment of variables to types with matching properties.
+
+Excess properties are more permissible.
+
+Index Signatures:
+
+Allow additional properties beyond those explicitly defined in the interface.
+
+Provide flexibility in handling objects with varying structures.
