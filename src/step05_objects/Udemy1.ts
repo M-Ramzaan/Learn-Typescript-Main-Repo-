@@ -2,10 +2,7 @@
 
 //Object as a function
 
-export default function myName(Person: {
-  firstName: string;
-  lastName: string;
-}): void {
+function myName(Person: { firstName: string; lastName: string }): void {
   console.log(`${Person.firstName} ${Person["lastName"]}`);
 }
 

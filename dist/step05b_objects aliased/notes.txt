@@ -1,0 +1,73 @@
+Anonymous Object
+
+An anonymous object is an object without a predefined type. In TypeScript, you can define the structure of such an object directly within the variable declaration.
+
+let teacher: { name: string; experience: number } = { name: "Muhammad Ramzan Akram", experience: 10 };
+Here, the teacher object is defined with two properties:
+
+name (a string)
+experience (a number)
+
+Object Aliased
+
+An object alias is a reusable type definition. Instead of defining the structure of an object every time, you create a type alias that can be used multiple times.
+
+type Student = {
+  name: string;
+  age: number;
+};
+
+let student: Student = { name: "Muhammad Ramzan Akram", age: 2024 - 1990 };
+Here, we create a type alias Student with properties:
+
+name (a string)
+age (a number)
+
+We then create a student object of type Student.
+
+Dot Notation and Bracket Notation
+These are two ways to access properties of an object.
+
+Dot Notation:
+
+Access the property using a dot (.). For example, student.name.
+
+Bracket Notation: 
+
+Access the property using brackets ([]). For example, student["age"].
+
+Interface
+
+An interface is similar to a type alias but is often used to define a contract for classes or objects. Interfaces can also have optional properties.
+
+interface Manager {
+  name: string;
+  age: number;
+  department: string;
+  city?: string; // Optional property
+}
+
+let manager: Manager = { name: "Muhammad Ramzan Akram", age: 2024 - 1990, department: "IT", city: "Karachi" };
+Here, the Manager interface defines four properties:
+
+name (a string)
+age (a number)
+department (a string)
+city (an optional string)
+
+The manager object is created with all properties of the Manager interface.
+
+Summary
+Anonymous Object:
+
+Defines object structure directly within the variable declaration.
+
+Object Aliased (Type): Creates a reusable type definition for objects.
+
+Dot Notation: Access object properties using a dot (.).
+
+Bracket Notation: Access object properties using brackets ([]).
+
+Interface: Defines a contract for objects or classes with optional properties.
+
+These concepts help in organizing and managing the structure of objects in your code, making it more readable and maintainable.
